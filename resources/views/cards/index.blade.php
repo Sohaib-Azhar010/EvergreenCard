@@ -45,6 +45,7 @@
                             <table class="table table-striped table-hover">
                                 <thead class="table-dark">
                                     <tr>
+                                        <th>Header</th>
                                         <th class="arabic-text">رقم المنشأة</th>
                                         <th class="arabic-text">رقم العضوية</th>
                                         <th class="arabic-text">رقم الطلب</th>
@@ -57,6 +58,7 @@
                                 <tbody>
                                     @foreach($cards as $card)
                                     <tr>
+                                        <td>{{ $card->header ?? 'N/A' }}</td>
                                         <td>{{ $card->company_number }}</td>
                                         <td>{{ $card->membership_number }}</td>
                                         <td>{{ $card->request_number }}</td>
@@ -65,7 +67,7 @@
                                         <td>{{ $card->created_at->format('Y-m-d H:i') }}</td>
                                         <td>
                                             <button class="btn btn-sm btn-primary"
-                                                onclick="downloadCard({{ $card->id }}, '{{ $card->company_number }}', '{{ $card->membership_number }}', '{{ $card->request_number }}', '{{ $card->valid_until->format('Y-m-d') }}', '{{ $card->created_by }}')">
+                                                onclick="downloadCard({{ $card->id }}, '{{ $card->header ?? '' }}', '{{ $card->company_number }}', '{{ $card->membership_number }}', '{{ $card->request_number }}', '{{ $card->valid_until->format('Y-m-d') }}', '{{ $card->created_by }}')">
                                                 <i class="fas fa-download"></i> تحميل
                                             </button>
                                         </td>
@@ -96,7 +98,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
     <script>
-        async function downloadCard(id, companyNumber, membershipNumber, requestNumber, validUntil, createdBy) {
+        async function downloadCard(id, header, companyNumber, membershipNumber, requestNumber, validUntil, createdBy) {
             const cardHtml = `
                 <div id="card-${id}" style="
                     width: 540px;
@@ -110,17 +112,21 @@
                     box-sizing: border-box;
                     overflow: hidden;
                 ">
-                    <!-- Top Company Name -->
+                    <!-- Header -->
+                    ${header ? `
                     <div style="
                         position: absolute;
-                        top: 15px;
+                        top: 10px;
                         right: 50%;
                         transform: translateX(50%);
-                        font-size: 18px;
+                        font-size: 16px;
                         font-weight: bold;
+                        color: #333;
                     ">
-                        شركة إيفر غرين إنتيلجنت
+                        ${header}
                     </div>
+                    ` : ''}
+                    
         
                     <!-- QR Code -->
                     <div style="
@@ -161,11 +167,11 @@
                         line-height: 2;
                         color: #555;
                     ">
-                        <div><input type="checkbox">رقم المنشأة</div>
-                        <div><input type="checkbox">رقم العضوية </div>
-                        <div><input type="checkbox">رقم الطلب</div>
-                        <div><input type="checkbox">ساري حتى</div>
-                        <div><input type="checkbox">تم بواسطة</div>
+                        <div><input type="checkbox" style="margin-left: 8px; width: 16px; height: 16px; accent-color: transparent; background-color: white; border: 2px solid #000; border-radius: 0;">رقم المنشأة</div>
+                        <div><input type="checkbox" style="margin-left: 8px; width: 16px; height: 16px; accent-color: transparent; background-color: white; border: 2px solid #000; border-radius: 0;">رقم العضوية</div>
+                        <div><input type="checkbox" style="margin-left: 8px; width: 16px; height: 16px; accent-color: transparent; background-color: white; border: 2px solid #000; border-radius: 0;">رقم الطلب</div>
+                        <div><input type="checkbox" style="margin-left: 8px; width: 16px; height: 16px; accent-color: transparent; background-color: white; border: 2px solid #000; border-radius: 0;">ساري حتى</div>
+                        <div><input type="checkbox" style="margin-left: 8px; width: 16px; height: 16px; accent-color: transparent; background-color: white; border: 2px solid #000; border-radius: 0;">تم بواسطة</div>
                     </div>
         
                     

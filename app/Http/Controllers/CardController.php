@@ -21,6 +21,7 @@ class CardController extends Controller
     public function store(Request $request)
     {
         $request->validate([
+            'header' => 'nullable|string|max:255',
             'company_number' => 'required|string|max:255',
             'membership_number' => 'required|string|max:255',
             'request_number' => 'required|string|max:255',

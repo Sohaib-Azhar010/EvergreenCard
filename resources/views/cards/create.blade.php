@@ -46,6 +46,13 @@
                         <form method="POST" action="{{ route('cards.store') }}">
                             @csrf
                             <div class="row">
+                                <div class="col-md-12 mb-3">
+                                    <label for="header" class="form-label">Header</label>
+                                    <input type="text" class="form-control" id="header" name="header" placeholder="Enter header text">
+                                </div>
+                            </div>
+                            
+                            <div class="row">
                                 <div class="col-md-6 mb-3">
                                     <label for="company_number" class="form-label arabic-text">رقم المنشأة</label>
                                     <input type="text" class="form-control" id="company_number" name="company_number">
@@ -70,7 +77,7 @@
                             <div class="row">
                                 <div class="col-md-12 mb-3">
                                     <label for="created_by" class="form-label arabic-text">تم بواسطة</label>
-                                    <input type="text" class="form-control" id="created_by" name="created_by" value="إيفر غرين إنتيليجنت" readonly>
+                                    <input type="text" class="form-control" id="created_by" name="created_by">
                                 </div>
                             </div>
                             

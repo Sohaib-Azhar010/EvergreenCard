@@ -200,6 +200,7 @@
                         font-weight: bold;
                         line-height: 2;
                         color: #555;
+                        font-family: 'Segoe UI', 'Tahoma', 'Arial', 'Noto Sans Arabic', sans-serif;
                     ">
                         <div><label style="display: flex; align-items: center; cursor: pointer;"><input type="checkbox" style="display: none;"><span class="custom-checkbox"></span>رقم المنشأة</label></div>
                         <div><label style="display: flex; align-items: center; cursor: pointer;"><input type="checkbox" style="display: none;"><span class="custom-checkbox"></span>رقم العضوية</label></div>
@@ -216,7 +217,7 @@
                         bottom: 15px;
                         left: 20px;
                         right: 20px;
-                        font-size: 17px;
+                        font-size: 16px;
                         font-weight: bold;
                         color: #000;
                         background: #ABCDEF;
@@ -224,6 +225,7 @@
                         padding: 6px;
                         line-height: 1;
                         text-align: justify;
+                        font-family: 'Segoe UI', 'Tahoma', 'Arial', 'Noto Sans Arabic', sans-serif;
                     ">
                         تم إصدار هذا الختم بناءً على طلب المشترك، وتخلي الغرفة التجارية بينبع التي تم تقديم الطلب من خلالها مسؤوليتها عن محتواها.
                         للتحقق من الختم امسح الـ QR Code أو من خلال الرابط.

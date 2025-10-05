@@ -161,24 +161,14 @@
                         line-height: 2;
                         color: #555;
                     ">
-                        <div>رقم المنشأة <input type="checkbox"></div>
-                        <div>رقم العضوية <input type="checkbox"></div>
-                        <div>رقم الطلب <input type="checkbox"></div>
-                        <div>ساري حتى <input type="checkbox"></div>
-                        <div>تم بواسطة <input type="checkbox"></div>
+                        <div><input type="checkbox">رقم المنشأة</div>
+                        <div><input type="checkbox">رقم العضوية </div>
+                        <div><input type="checkbox">رقم الطلب</div>
+                        <div><input type="checkbox">ساري حتى</div>
+                        <div><input type="checkbox">تم بواسطة</div>
                     </div>
         
-                    <!-- Bottom Company Name -->
-                    <div style="
-                        position: absolute;
-                        bottom: 70px;
-                        right: 50%;
-                        transform: translateX(50%);
-                        font-size: 14px;
-                        font-weight: bold;
-                    ">
-                        إيفر غرين إنتيلجنت
-                    </div>
+                    
         
                     <!-- Footer Disclaimer -->
                     <div style="

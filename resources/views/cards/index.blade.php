@@ -15,6 +15,41 @@
         .form-label {
             font-weight: bold;
         }
+
+        /* Custom Checkbox Styles */
+        .custom-checkbox {
+            display: inline-block;
+            width: 16px;
+            height: 16px;
+            border: 1px solid #7b7b7b;
+            background-color: white;
+            margin-left: 15px;
+            position: relative;
+            border-radius: 0;
+            cursor: pointer;
+        }
+
+        .custom-checkbox::after {
+            content: '';
+            position: absolute;
+            display: none;
+            left: 4px;
+            top: 1px;
+            width: 4px;
+            height: 8px;
+            border: solid #000;
+            border-width: 0 2px 2px 0;
+            transform: rotate(45deg);
+        }
+
+        input[type="checkbox"]:checked + .custom-checkbox::after {
+            display: block;
+        }
+
+        input[type="checkbox"]:checked + .custom-checkbox {
+            background-color: white;
+            border-color: #000;
+        }
     </style>
 </head>
 
@@ -116,9 +151,8 @@
                     ${header ? `
                     <div style="
                         position: absolute;
-                        top: 10px;
-                        right: 50%;
-                        transform: translateX(50%);
+                        top: 25px;
+                        right: 50px;
                         font-size: 16px;
                         font-weight: bold;
                         color: #333;
@@ -132,9 +166,9 @@
                     <div style="
                         position: absolute;
                         top: 80px;
-                        left: 40px;
-                        width: 140px;
-                        height: 140px;
+                        left: 10px;
+                        width: 190px;
+                        height: 190px;
                         text-align: center;
                     ">
                         <img src="{{ asset('images/qr.png') }}" style="width: 130px; height: 130px;" alt="QR Code">
@@ -143,35 +177,35 @@
                     <!-- Numbers (Center) -->
                     <div style="
                         position: absolute;
-                        top: 90px;
-                        right: 220px;
-                        text-align: center;
-                        font-size: 16px;
-                        font-weight: bold;
+                        top: 75px;
+                        right: 160px;
+                        text-align: right;
+                        font-size: 17px;
                         line-height: 2;
                     ">
                         <div>${companyNumber}</div>
                         <div>${membershipNumber}</div>
                         <div>${requestNumber}</div>
                         <div>${validUntil}</div>
-                        <div>${createdBy}</div>
+                        <div style="font-size: 18px;font-weight: 700;">${createdBy}</div>
                     </div>
         
                     <!-- Labels + Checkboxes (Right Side) -->
                     <div style="
                         position: absolute;
-                        top: 90px;
-                        right: 40px;
+                        top: 75px;
+                        right: 20px;
                         text-align: right;
-                        font-size: 14px;
+                        font-size: 16px;
+                        font-weight: bold;
                         line-height: 2;
                         color: #555;
                     ">
-                        <div><input type="checkbox" style="margin-left: 8px; width: 16px; height: 16px; accent-color: transparent; background-color: white; border: 2px solid #000; border-radius: 0;">رقم المنشأة</div>
-                        <div><input type="checkbox" style="margin-left: 8px; width: 16px; height: 16px; accent-color: transparent; background-color: white; border: 2px solid #000; border-radius: 0;">رقم العضوية</div>
-                        <div><input type="checkbox" style="margin-left: 8px; width: 16px; height: 16px; accent-color: transparent; background-color: white; border: 2px solid #000; border-radius: 0;">رقم الطلب</div>
-                        <div><input type="checkbox" style="margin-left: 8px; width: 16px; height: 16px; accent-color: transparent; background-color: white; border: 2px solid #000; border-radius: 0;">ساري حتى</div>
-                        <div><input type="checkbox" style="margin-left: 8px; width: 16px; height: 16px; accent-color: transparent; background-color: white; border: 2px solid #000; border-radius: 0;">تم بواسطة</div>
+                        <div><label style="display: flex; align-items: center; cursor: pointer;"><input type="checkbox" style="display: none;"><span class="custom-checkbox"></span>رقم المنشأة</label></div>
+                        <div><label style="display: flex; align-items: center; cursor: pointer;"><input type="checkbox" style="display: none;"><span class="custom-checkbox"></span>رقم العضوية</label></div>
+                        <div><label style="display: flex; align-items: center; cursor: pointer;"><input type="checkbox" style="display: none;"><span class="custom-checkbox"></span>رقم الطلب</label></div>
+                        <div><label style="display: flex; align-items: center; cursor: pointer;"><input type="checkbox" style="display: none;"><span class="custom-checkbox"></span>ساري حتى</label></div>
+                        <div style="margin-top: 10px;"><label style="display: flex; align-items: center; cursor: pointer;"><input type="checkbox" style="display: none;"><span class="custom-checkbox"></span>تم بواسطة</label></div>
                     </div>
         
                     
@@ -182,12 +216,13 @@
                         bottom: 15px;
                         left: 20px;
                         right: 20px;
-                        font-size: 14px;
+                        font-size: 17px;
+                        font-weight: bold;
                         color: #000;
                         background: #ABCDEF;
                         border-radius: 6px;
                         padding: 6px;
-                        line-height: 1.5;
+                        line-height: 1;
                         text-align: justify;
                     ">
                         تم إصدار هذا الختم بناءً على طلب المشترك، وتخلي الغرفة التجارية بينبع التي تم تقديم الطلب من خلالها مسؤوليتها عن محتواها.
